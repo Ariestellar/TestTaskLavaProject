@@ -14,11 +14,6 @@ public class ShootingMode : MonoBehaviour
     private InputHandler _inputHandler;
     private Weapon _weapon;
 
-    /*private void Update()
-    {
-        _positionArm = _currentPositionArm; 
-    }*/
-
     public void Init(InputHandler inputHandler, Weapon weapon, Animator animatorIK)
     {
         _inputHandler = inputHandler;
@@ -27,8 +22,7 @@ public class ShootingMode : MonoBehaviour
     }
 
     private void FireShot(Vector3 targetPosition)
-    {        
-        //_currentPositionArm = GetPositionArm(targetPosition);
+    { 
         _weapon.StartShooting(targetPosition);       
     }
 

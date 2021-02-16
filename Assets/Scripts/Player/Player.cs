@@ -13,7 +13,7 @@
 /// 
 /// Обязан иметь AnimatorFunction
 /// </summary>
-[RequireComponent(typeof(AnimatorFunction))] 
+[RequireComponent(typeof(ControllerAnimations))] 
 public class Player : MonoBehaviour
 {
     [SerializeField] private InputHandler _inputHandler;
@@ -26,11 +26,11 @@ public class Player : MonoBehaviour
     [SerializeField] private MoveMode _moveMode;
 
     [SerializeField] private Animator _animatorIK;
-    private AnimatorFunction _animatorFunction; 
+    private ControllerAnimations _animatorFunction; 
 
     private void Awake()
     {
-        _animatorFunction = GetComponent<AnimatorFunction>();
+        _animatorFunction = GetComponent<ControllerAnimations>();
 
         //Инициализируем компоненты
         _moveMode.Init(_inputHandler, _playerParameterSettings.Speed);
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         _detectorMode.NoEnemiesWithinReach += EnableMoveMode;
 
         _moveMode.ReachedDestination += _animatorFunction.Idle;
-        _moveMode.StartMoving += _animatorFunction.Walk;
+        _moveMode.StartMoving += _animatorFunction.Run;
 
         _triggerHandler.BeingTriggerShootingPosition += EnableDetectorMode;
         _triggerHandler.ExitTriggerShootingPosition += DisableDetectorMode;

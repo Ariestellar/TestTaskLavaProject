@@ -17,8 +17,7 @@ public class MoveMode : MonoBehaviour
     private NavMeshAgent _playerNavMeshAgent;   
 
     public Action ReachedDestination;
-    public Action StartMoving;
-    
+    public Action StartMoving;    
 
     private void Awake()
     {
